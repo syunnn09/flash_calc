@@ -94,13 +94,17 @@ class prev():
         self.answer.delete(0, tk.END)
         self.create_limit = int(self.times_box.get())
         self.keta()
+        
         while self.create_time < self.create_limit:
             num = np.random.randint(self.randnum) + self.plusnum
             self.sum += num
             self.label.configure(text=num)
             self.label.update()
             self.create_time += 1
-            time.sleep(float(self.speed_box.get()))
+            time.sleep(float(self.speed_box.get()) - 0.15)
+            self.label.configure(text='')
+            self.label.update()
+            time.sleep(0.15)
 
         self.label.configure(text='?')
         self.label.update()
